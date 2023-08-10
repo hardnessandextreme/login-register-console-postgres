@@ -1,0 +1,8 @@
+11:08:38 PM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+11:11:17 PM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+11:13:40 PM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+11:14:10 PM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+11:16:04 PM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+11:16:04 PM: DEBUG [dao_usuario.py:30] None
+11:25:11 PM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+11:25:11 PM: DEBUG [dao_usuario.py:30] Usuario registrado correctamente
