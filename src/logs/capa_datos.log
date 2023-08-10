@@ -1,0 +1,25 @@
+11:08:38 PM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+11:11:17 PM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+11:13:40 PM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+11:14:10 PM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+11:16:04 PM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+11:16:04 PM: DEBUG [dao_usuario.py:30] None
+11:25:11 PM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+11:25:11 PM: DEBUG [dao_usuario.py:30] Usuario registrado correctamente
+11:52:57 PM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+11:52:57 PM: DEBUG [dao_usuario.py:30] Usuario registrado correctamente
+12:04:55 AM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+12:04:55 AM: ERROR [dao_usuario.py:24] Error: El usuario jiquinte ya existe, escoja otro.
+12:24:28 AM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+12:24:28 AM: DEBUG [database.py:40] Se creo el cursor correctamente.
+12:24:28 AM: ERROR [dao_usuario.py:49] Error: Credenciales invalidas. Usuario: jiquinte Contrasena: 101218
+12:24:56 AM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+12:24:56 AM: DEBUG [database.py:40] Se creo el cursor correctamente.
+12:25:32 AM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+12:25:32 AM: DEBUG [database.py:40] Se creo el cursor correctamente.
+12:25:59 AM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+12:25:59 AM: DEBUG [database.py:40] Se creo el cursor correctamente.
+12:25:59 AM: DEBUG [dao_usuario.py:45] El usuario jiquinte, con None ha iniciado sesion.
+12:26:44 AM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+12:26:44 AM: DEBUG [database.py:40] Se creo el cursor correctamente.
+12:26:44 AM: DEBUG [dao_usuario.py:46] El usuario robin ha iniciado sesion.
