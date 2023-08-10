@@ -95,3 +95,7 @@
 04:06:22 PM: DEBUG [database.py:40] Se creo el cursor correctamente.
 04:37:57 PM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
 04:37:57 PM: DEBUG [dao_usuario.py:31] Un usuario se registro correctamente: NebulaMaster
+04:57:30 PM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+04:57:30 PM: DEBUG [database.py:40] Se creo el cursor correctamente.
+04:57:30 PM: DEBUG [dao_usuario.py:46] El usuario hardness con ID: 1 ha iniciado sesion.
+05:00:30 PM: DEBUG [dao_usuario.py:31] Un usuario se registro correctamente: pepeTola
