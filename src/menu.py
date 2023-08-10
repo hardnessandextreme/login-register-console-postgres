@@ -21,7 +21,6 @@ def iniciarSesion():
         print('Que deseas hacer')
     else:
         print('Credenciales invalidas')
-
 def registrarUsuario():
     print(' Registro de usuario '.center(50, '-'))
     print('Consejos:\n'
@@ -53,5 +52,25 @@ def registrarUsuario():
         usuario = Usuario(name_user=name_user, pass_user=pass_user)
         usuarioDAO = DAOUsuario.registrarUsuario(usuario)
 
-# iniciarSesion()
-registrarUsuario()
+loop = True
+
+while loop:
+    print('Menu')
+    print('1. Iniciar Sesion\n'
+          '2. Registrarse\n'
+          '3. Salir')
+
+    try:
+        choice = int(input('Ingrese una opcion: '))
+
+        if choice == 1:
+            iniciarSesion()
+        elif choice == 2:
+            registrarUsuario()
+        elif choice == 3:
+            loop = False
+        else:
+            print('Ingrese una opcion correcta.')
+
+    except Exception as e:
+        print(e)
