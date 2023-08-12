@@ -47,6 +47,35 @@ def iniciarSesion():
 
             elif opcion == 2 and usuarioAdmin:
                 print('Vas a cambiar tu contra')
+                print('Consejos:\n'
+                      '1. La contrasena debe tener al menos 8 caracteres, entre ellos: 1 numero, 1 letra mayuscula.\n'
+                      '2. La contrasena no debe exceder los 20 caracteres.'
+                      '3. La confirmacion de la contrasena debe ser igual a la contrasena.\n')
+                contrasenia_actual = input('Ingrese su contrasena actual: ')
+                contrasnia_a_cambiar = input('Ingrese la contrasenia nueva: ')
+                conf_contrasnia_a_cambiar = input('Confirme la contrasenia nueva: ')
+
+                # Validaciones:
+                pass_no_tiene_numero = not any(c.isdigit() for c in contrasnia_a_cambiar)
+                pass_no_tiene_mayus = not any(c.isupper() for c in contrasnia_a_cambiar)
+                pass_no_conf_pass = contrasnia_a_cambiar != conf_contrasnia_a_cambiar
+                pass_excede_limite = len(contrasnia_a_cambiar) > 20
+                pass_no_supera_minimo = not len(contrasnia_a_cambiar) >= 8
+
+                validacion_pass = (
+                            pass_no_tiene_numero or pass_no_tiene_mayus or
+                            pass_no_conf_pass or pass_excede_limite or
+                            pass_no_supera_minimo)
+
+                if contrasnia_a_cambiar != conf_contrasnia_a_cambiar:
+                    print('La nueva confirmacion de la contrasenia no es igual.')
+                elif validacion_pass:
+                    print('No cumpes con las indicaciones')
+                else:
+                    cambioPass = DAOUsuario.cambiarContrasenia(usuario, contrasenia_actual, conf_contrasnia_a_cambiar)
+                    if cambioPass:
+                        log.debug(f'(ID: {usuario.id_user}) {usuario.name_user} ha actualizado su contrasenia de {contrasenia_actual} a {contrasnia_a_cambiar}')
+
 
             elif opcion == 3 and usuarioAdmin:
                 print(f'Estas viendo tu nombre: {usuario.name_user}')
