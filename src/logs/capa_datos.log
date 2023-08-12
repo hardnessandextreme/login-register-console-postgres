@@ -99,3 +99,156 @@
 04:57:30 PM: DEBUG [database.py:40] Se creo el cursor correctamente.
 04:57:30 PM: DEBUG [dao_usuario.py:46] El usuario hardness con ID: 1 ha iniciado sesion.
 05:00:30 PM: DEBUG [dao_usuario.py:31] Un usuario se registro correctamente: pepeTola
+10:43:31 AM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+10:43:31 AM: DEBUG [database.py:40] Se creo el cursor correctamente.
+10:43:31 AM: DEBUG [dao_usuario.py:46] El usuario hardness con ID: 1 ha iniciado sesion.
+10:44:11 AM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+10:44:11 AM: DEBUG [database.py:40] Se creo el cursor correctamente.
+10:46:08 AM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+10:46:08 AM: DEBUG [database.py:40] Se creo el cursor correctamente.
+10:46:19 AM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+10:46:19 AM: DEBUG [database.py:40] Se creo el cursor correctamente.
+10:46:19 AM: DEBUG [dao_usuario.py:46] El usuario hardness con ID: 1 ha iniciado sesion.
+10:47:05 AM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+10:47:05 AM: DEBUG [database.py:40] Se creo el cursor correctamente.
+10:47:05 AM: DEBUG [dao_usuario.py:46] El usuario janodroll con ID: 2 ha iniciado sesion.
+10:49:59 AM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+10:49:59 AM: DEBUG [database.py:40] Se creo el cursor correctamente.
+10:49:59 AM: DEBUG [dao_usuario.py:46] El usuario janodroll con ID: 2 ha iniciado sesion.
+10:50:27 AM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+10:50:27 AM: DEBUG [database.py:40] Se creo el cursor correctamente.
+10:51:40 AM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+10:51:40 AM: DEBUG [database.py:40] Se creo el cursor correctamente.
+10:52:53 AM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+10:52:53 AM: DEBUG [database.py:40] Se creo el cursor correctamente.
+10:55:41 AM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+10:55:50 AM: DEBUG [database.py:40] Se creo el cursor correctamente.
+10:57:53 AM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+10:57:53 AM: DEBUG [database.py:40] Se creo el cursor correctamente.
+10:58:48 AM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+10:58:48 AM: DEBUG [database.py:40] Se creo el cursor correctamente.
+11:00:15 AM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+11:00:15 AM: DEBUG [database.py:40] Se creo el cursor correctamente.
+11:00:41 AM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+11:00:41 AM: DEBUG [database.py:40] Se creo el cursor correctamente.
+11:01:05 AM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+11:01:05 AM: DEBUG [database.py:40] Se creo el cursor correctamente.
+11:01:52 AM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+11:01:52 AM: DEBUG [database.py:40] Se creo el cursor correctamente.
+11:03:35 AM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+11:03:35 AM: DEBUG [database.py:40] Se creo el cursor correctamente.
+11:06:56 AM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+11:06:56 AM: DEBUG [database.py:40] Se creo el cursor correctamente.
+11:07:08 AM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+11:07:08 AM: DEBUG [database.py:40] Se creo el cursor correctamente.
+11:07:08 AM: DEBUG [dao_usuario.py:46] El usuario hardness con ID: 1 ha iniciado sesion.
+11:09:04 AM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+11:09:04 AM: DEBUG [database.py:40] Se creo el cursor correctamente.
+11:11:36 AM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+11:11:36 AM: DEBUG [database.py:40] Se creo el cursor correctamente.
+11:13:34 AM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+11:13:34 AM: DEBUG [database.py:40] Se creo el cursor correctamente.
+11:14:29 AM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+11:14:29 AM: DEBUG [database.py:40] Se creo el cursor correctamente.
+11:15:37 AM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+11:15:37 AM: DEBUG [database.py:40] Se creo el cursor correctamente.
+11:15:37 AM: DEBUG [dao_usuario.py:46] El usuario hardness con ID: 1 ha iniciado sesion.
+11:28:21 AM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+11:28:21 AM: DEBUG [database.py:40] Se creo el cursor correctamente.
+11:29:50 AM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+11:29:50 AM: DEBUG [database.py:40] Se creo el cursor correctamente.
+11:35:34 AM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+11:35:34 AM: DEBUG [database.py:40] Se creo el cursor correctamente.
+11:35:51 AM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+11:35:51 AM: DEBUG [database.py:40] Se creo el cursor correctamente.
+11:39:45 AM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+11:40:06 AM: DEBUG [dao_usuario.py:47] El usuario hardness con ID: 1 ha iniciado sesion.
+11:41:53 AM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+11:41:53 AM: DEBUG [dao_usuario.py:47] El usuario hardness con ID: 1 ha iniciado sesion.
+11:42:14 AM: DEBUG [dao_usuario.py:47] El usuario janodroll con ID: 2 ha iniciado sesion.
+11:44:26 AM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+11:44:26 AM: DEBUG [dao_usuario.py:47] El usuario hardness con ID: 1 ha iniciado sesion.
+11:45:01 AM: DEBUG [dao_usuario.py:47] El usuario janodroll con ID: 2 ha iniciado sesion.
+11:45:35 AM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+11:45:35 AM: DEBUG [dao_usuario.py:47] El usuario janodroll con ID: 2 ha iniciado sesion.
+11:50:40 AM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+11:51:08 AM: DEBUG [dao_usuario.py:47] El usuario hardness con ID: 1 ha iniciado sesion.
+11:57:06 AM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+11:57:06 AM: DEBUG [dao_usuario.py:47] El usuario hardness con ID: 1 ha iniciado sesion.
+11:57:37 AM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+11:57:37 AM: DEBUG [dao_usuario.py:47] El usuario hardness con ID: 1 ha iniciado sesion.
+12:04:29 PM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+12:04:29 PM: DEBUG [dao_usuario.py:31] 
+Un usuario se registro correctamente: elmochilas123
+12:04:44 PM: DEBUG [dao_usuario.py:47] El usuario elmochilas123 con ID: 5 ha iniciado sesion.
+12:05:24 PM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+12:05:24 PM: DEBUG [dao_usuario.py:47] El usuario elmochilas123 con ID: 5 ha iniciado sesion.
+12:16:06 PM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+12:16:06 PM: DEBUG [dao_usuario.py:47] El usuario janodroll con ID: 2 ha iniciado sesion.
+12:33:25 PM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+12:33:25 PM: DEBUG [dao_usuario.py:47] El usuario hardness con ID: 1 ha iniciado sesion.
+12:34:07 PM: DEBUG [dao_usuario.py:47] El usuario janodroll con ID: 2 ha iniciado sesion.
+12:36:26 PM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+12:36:55 PM: DEBUG [dao_usuario.py:47] El usuario janodroll con ID: 2 ha iniciado sesion.
+12:37:33 PM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+12:37:33 PM: DEBUG [dao_usuario.py:47] El usuario hardness con ID: 1 ha iniciado sesion.
+12:37:56 PM: DEBUG [dao_usuario.py:47] El usuario hardness con ID: 1 ha iniciado sesion.
+12:42:06 PM: DEBUG [dao_usuario.py:47] El usuario elmochilas123 con ID: 5 ha iniciado sesion.
+12:52:40 PM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+12:52:40 PM: DEBUG [dao_usuario.py:48] El usuario hardness con ID: 1 ha iniciado sesion.
+12:55:06 PM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+12:55:06 PM: DEBUG [dao_usuario.py:48] El usuario hardness con ID: 1 ha iniciado sesion.
+12:56:55 PM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+12:56:55 PM: DEBUG [dao_usuario.py:48] El usuario hardness con ID: 1 ha iniciado sesion.
+12:59:10 PM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+12:59:10 PM: DEBUG [dao_usuario.py:48] El usuario elmochilas123 con ID: 5 ha iniciado sesion.
+01:00:26 PM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+01:00:42 PM: DEBUG [dao_usuario.py:48] El usuario elmochilas123 con ID: 5 ha iniciado sesion.
+01:00:49 PM: DEBUG [menu.py:41] elmochilas123 ha dado rango admin a pepeTola
+01:02:40 PM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+01:02:40 PM: DEBUG [dao_usuario.py:48] El usuario hardness con ID: 1 ha iniciado sesion.
+01:03:18 PM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+01:03:18 PM: DEBUG [dao_usuario.py:48] El usuario hardness con ID: 1 ha iniciado sesion.
+01:03:46 PM: DEBUG [menu.py:41] (1)hardness ha dado rango admin a NebulaMaster
+06:52:47 PM: ERROR [database.py:29] No se logro conectar a la base de datos.
+07:54:48 PM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+07:54:48 PM: DEBUG [dao_usuario.py:48] El usuario hardness con ID: 1 ha iniciado sesion.
+07:57:46 PM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+07:57:46 PM: DEBUG [dao_usuario.py:48] El usuario hardness con ID: 1 ha iniciado sesion.
+08:03:59 PM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+08:03:59 PM: DEBUG [dao_usuario.py:49] El usuario hardness con ID: 1 ha iniciado sesion.
+08:04:04 PM: DEBUG [menu.py:41] (ID: 1) hardness ha dado rango admin a (ID: 4) pepeTola
+08:18:38 PM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+08:18:38 PM: DEBUG [dao_usuario.py:50] El usuario hardness con ID: 1 ha iniciado sesion.
+08:18:43 PM: DEBUG [database.py:40] Se creo el cursor correctamente.
+08:19:01 PM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+08:19:01 PM: DEBUG [dao_usuario.py:50] El usuario hardness con ID: 1 ha iniciado sesion.
+08:19:03 PM: DEBUG [database.py:40] Se creo el cursor correctamente.
+08:21:01 PM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+08:21:01 PM: DEBUG [dao_usuario.py:50] El usuario hardness con ID: 1 ha iniciado sesion.
+08:21:02 PM: DEBUG [database.py:40] Se creo el cursor correctamente.
+08:24:01 PM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+08:24:01 PM: DEBUG [dao_usuario.py:50] El usuario hardness con ID: 1 ha iniciado sesion.
+08:24:02 PM: DEBUG [database.py:40] Se creo el cursor correctamente.
+08:24:37 PM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+08:24:37 PM: DEBUG [dao_usuario.py:50] El usuario hardness con ID: 1 ha iniciado sesion.
+08:24:38 PM: DEBUG [database.py:40] Se creo el cursor correctamente.
+08:26:03 PM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+08:26:03 PM: DEBUG [dao_usuario.py:50] El usuario hardness con ID: 1 ha iniciado sesion.
+08:26:13 PM: DEBUG [database.py:40] Se creo el cursor correctamente.
+08:27:45 PM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+08:27:45 PM: DEBUG [dao_usuario.py:50] El usuario hardness con ID: 1 ha iniciado sesion.
+08:27:54 PM: DEBUG [database.py:40] Se creo el cursor correctamente.
+08:30:28 PM: DEBUG [dao_usuario.py:50] El usuario hardness con ID: 1 ha iniciado sesion.
+08:30:57 PM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+08:30:57 PM: DEBUG [dao_usuario.py:50] El usuario hardness con ID: 1 ha iniciado sesion.
+08:30:59 PM: DEBUG [database.py:40] Se creo el cursor correctamente.
+08:31:06 PM: DEBUG [menu.py:45] (ID: 1) hardness ha dado rango admin a (ID: 2) janodroll
+08:31:49 PM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+08:31:49 PM: DEBUG [dao_usuario.py:50] El usuario hardness con ID: 1 ha iniciado sesion.
+08:31:50 PM: DEBUG [database.py:40] Se creo el cursor correctamente.
+08:31:55 PM: DEBUG [menu.py:45] (ID: 1) hardness ha dado rango admin a (ID: 2) janodroll
+08:33:03 PM: DEBUG [database.py:26] Se conecto la base de datos satisfactoriamente.
+08:33:03 PM: DEBUG [dao_usuario.py:50] El usuario hardness con ID: 1 ha iniciado sesion.
+08:33:09 PM: DEBUG [menu.py:45] (ID: 1) hardness ha dado rango admin a (ID: 3) NebulaMaster
+08:33:18 PM: DEBUG [menu.py:45] (ID: 1) hardness ha dado rango admin a (ID: 5) elmochilas123
