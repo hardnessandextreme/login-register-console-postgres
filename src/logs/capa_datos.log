@@ -252,3 +252,25 @@ Un usuario se registro correctamente: elmochilas123
 08:33:03 PM: DEBUG [dao_usuario.py:50] El usuario hardness con ID: 1 ha iniciado sesion.
 08:33:09 PM: DEBUG [menu.py:45] (ID: 1) hardness ha dado rango admin a (ID: 3) NebulaMaster
 08:33:18 PM: DEBUG [menu.py:45] (ID: 1) hardness ha dado rango admin a (ID: 5) elmochilas123
+12:37:17 PM: DEBUG [database.py:43] Se conecto la base de datos satisfactoriamente. <connection object at 0x000002AD4F361140; dsn: 'user=postgres password=xxx dbname=sistema_prueba host=127.0.0.1 port=5432', closed: 0>
+12:39:08 PM: DEBUG [database.py:43] Se conecto la base de datos satisfactoriamente. <connection object at 0x000001F54221D140; dsn: 'user=postgres password=xxx dbname=sistema_prueba host=127.0.0.1 port=5432', closed: 0>
+12:39:08 PM: DEBUG [dao_usuario.py:71] El usuario hardness con ID: 1 ha iniciado sesion.
+12:57:42 PM: DEBUG [database.py:43] Se conecto la base de datos satisfactoriamente. <connection object at 0x000001536C7E1140; dsn: 'user=postgres password=xxx dbname=sistema_prueba host=127.0.0.1 port=5432', closed: 0>
+12:57:42 PM: DEBUG [dao_usuario.py:71] El usuario hardness con ID: 1 ha iniciado sesion.
+12:57:59 PM: DEBUG [menu.py:57] (ID: 1) hardness ha actualizado su contrasenia de 12345 a 101218Jo
+01:00:53 PM: DEBUG [database.py:43] Se conecto la base de datos satisfactoriamente. <connection object at 0x000002364FB2D140; dsn: 'user=postgres password=xxx dbname=sistema_prueba host=127.0.0.1 port=5432', closed: 0>
+01:00:53 PM: DEBUG [dao_usuario.py:71] El usuario hardness con ID: 1 ha iniciado sesion.
+01:01:06 PM: DEBUG [menu.py:57] (ID: 1) hardness ha actualizado su contrasenia de 12345 a 101218Jo
+01:04:03 PM: DEBUG [menu.py:57] (ID: 1) hardness ha actualizado su contrasenia de 101218 a 12345
+01:08:28 PM: DEBUG [database.py:43] Se conecto la base de datos satisfactoriamente. <connection object at 0x00000241A65D1140; dsn: 'user=postgres password=xxx dbname=sistema_prueba host=127.0.0.1 port=5432', closed: 0>
+01:08:28 PM: DEBUG [dao_usuario.py:71] El usuario elmochilas123 con ID: 5 ha iniciado sesion.
+01:08:40 PM: DEBUG [menu.py:60] (ID: 5) elmochilas123 ha actualizado su contrasenia de Penecertero12 a 123
+01:09:39 PM: DEBUG [database.py:43] Se conecto la base de datos satisfactoriamente. <connection object at 0x000001906A84D140; dsn: 'user=postgres password=xxx dbname=sistema_prueba host=127.0.0.1 port=5432', closed: 0>
+01:09:39 PM: DEBUG [dao_usuario.py:71] El usuario elmochilas123 con ID: 5 ha iniciado sesion.
+01:10:39 PM: DEBUG [menu.py:60] (ID: 5) elmochilas123 ha actualizado su contrasenia de 123 a 101218Jo
+01:12:07 PM: DEBUG [menu.py:60] (ID: 5) elmochilas123 ha actualizado su contrasenia de 101218Jo a 1
+01:18:11 PM: DEBUG [database.py:43] Se conecto la base de datos satisfactoriamente. <connection object at 0x0000021C1B63D250; dsn: 'user=postgres password=xxx dbname=sistema_prueba host=127.0.0.1 port=5432', closed: 0>
+01:18:11 PM: DEBUG [dao_usuario.py:71] El usuario elmochilas123 con ID: 5 ha iniciado sesion.
+01:20:15 PM: DEBUG [database.py:43] Se conecto la base de datos satisfactoriamente. <connection object at 0x00000212A9AED250; dsn: 'user=postgres password=xxx dbname=sistema_prueba host=127.0.0.1 port=5432', closed: 0>
+01:20:15 PM: DEBUG [dao_usuario.py:71] El usuario elmochilas123 con ID: 5 ha iniciado sesion.
+01:20:27 PM: DEBUG [menu.py:77] (ID: 5) elmochilas123 ha actualizado su contrasenia de 1 a MochilaViajera123
