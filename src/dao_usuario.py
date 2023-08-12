@@ -18,6 +18,8 @@ class DAOUsuario:
     _EXTRAER_ID_USUARIO_A_SUBIR = 'SELECT id_user FROM usuarios WHERE name_user = %s'
     _CONVERTIR_ADMIN = "UPDATE usuarios SET is_admin='S' WHERE name_user= %s"
     _LISTAR_USUARIOS = 'SELECT * FROM usuarios ORDER BY id_user'
+    _CAMBIAR_CONTRASENA = 'UPDATE usuarios SET pass_user = %s WHERE name_user = %s'
+    _CONF_CONTRA_ACTUAL = 'SELECT pass_user FROM usuarios WHERE name_user=%s'
 
     """
     El metodo de clase registrarUsuario tomo como parametro (o tiene como argumento) un objeto instanciado de la 
@@ -130,3 +132,20 @@ class DAOUsuario:
                                        is_admin=usuario[3])
                     listaUsuarios.append(usuarios)
                 return listaUsuarios
+
+    @classmethod
+    def cambiarContrasenia(cls, usuario, contrasenia_actual, contrasnia_a_cambiar):
+        with Database.conectarDb() as conexion:
+            with conexion.cursor() as cursor:
+                valores = (usuario.name_user,)
+                cursor.execute(cls._CONF_CONTRA_ACTUAL, valores)
+                verificacion = cursor.fetchone()
+                if verificacion[0] != contrasenia_actual:
+                    print('La contrasena actual no coincide')
+                    cambio = False
+                else:
+                    valores = (contrasnia_a_cambiar, usuario.name_user)
+                    cursor.execute(cls._CAMBIAR_CONTRASENA, valores)
+                    print('Has actualizado tu contrasenia.')
+                    cambio = True
+            return cambio
