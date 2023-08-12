@@ -1,26 +1,74 @@
 from dao_usuario import DAOUsuario, Usuario
+from logs.logging import log
+
 
 def iniciarSesion():
-    print(' Inicio de Sesion '.center(50,'-'))
+    print(' Inicio de Sesion '.center(50, '-'))
     name_user = input('Ingrese su usuario: ')
     contra = input('Ingrese su contrasenia: ')
 
-    if(name_user == '') or (contra == ''):
+    if (name_user == '') or (contra == ''):
         print('Rellene todos los campos')
         return
 
     usuario = Usuario(name_user=name_user, pass_user=contra)
     usuarioDAO = DAOUsuario.logearUsuario(usuario)
-    # usuarioAdmin = DAOUsuario.esAdministrador(usuario)
 
     if usuarioDAO:
+        print('-' * 50)
+        print('{:^50}'.format(f' Bienvenido al sistema {usuario.name_user} '))
+        print('-' * 50)
         usuarioAdmin = DAOUsuario.esAdministrador(usuario)
-        print(f'Bienvenido al sistema {usuario.name_user}')
-        if usuarioAdmin:
-            print('Usted es admin')
-        print('Que deseas hacer')
-    else:
-        print('Credenciales invalidas')
+
+        if not usuarioAdmin:
+            menu = ('1. Cambiar tu contrasena\n'
+                    '2. Ver tu nombre\n'
+                    '3. Salir')
+        else:
+            menu = ('1. Crear usuario administrador\n'
+                    '2. Cambiar tu contrasena\n'
+                    '3. Ver tu nombre\n'
+                    '4. Salir')
+        while True:
+            print(menu)
+            opcion = int(input('Elige una opcion: '))
+
+            if opcion == 1 and usuarioAdmin:
+                print('Vas a crear un usuario admin')
+                listado = DAOUsuario.listarUsuarios()
+                for usersLista in listado:
+                    print(usersLista)
+
+                name_user = input('Ingrese el nombre del usuario a convertir a admin: ')
+                user = Usuario(name_user=name_user)
+                DAOUsuario.convertirAdmin(user)
+                log.debug(f'(ID: {usuario.id_user}) {usuario.name_user} ha dado rango admin a (ID: {user.id_user})'
+                          f' {user.name_user}')
+
+            elif opcion == 2 and usuarioAdmin:
+                print('Vas a cambiar tu contra')
+
+            elif opcion == 3 and usuarioAdmin:
+                print(f'Estas viendo tu nombre: {usuario.name_user}')
+
+            elif opcion == 4 and usuarioAdmin:
+                print('Estas saliendo')
+                break
+
+            elif opcion == 1:
+                print('Vas a cambiar tu contra')
+
+            elif opcion == 2:
+                print(f'Estas viendo tu nombre: {usuario.name_user}')
+
+            elif opcion == 3:
+                print('Estas saliendo')
+                break
+
+            else:
+                print('Opcion invalida, intenta de nuevo.')
+
+
 def registrarUsuario():
     print(' Registro de usuario '.center(50, '-'))
     print('Consejos:\n'
@@ -42,15 +90,16 @@ def registrarUsuario():
     pass_excede_limite = len(pass_user) > 20
     pass_no_supera_minimo = not len(pass_user) >= 8
 
-    validacion_pass = (longitud_usuario or usuario_igual_pass or pass_no_tiene_numero or
-                       pass_no_tiene_mayus or pass_no_conf_pass or pass_excede_limite or
+    validacion_pass = (longitud_usuario or usuario_igual_pass or pass_no_tiene_numero or pass_no_tiene_mayus or
+                       pass_no_conf_pass or pass_excede_limite or
                        pass_no_supera_minimo or longitud_usuario_maximo)
 
     if validacion_pass:
         print('Error: lea las indicaciones.')
     else:
         usuario = Usuario(name_user=name_user, pass_user=pass_user)
-        usuarioDAO = DAOUsuario.registrarUsuario(usuario)
+        DAOUsuario.registrarUsuario(usuario)
+
 
 loop = True
 
