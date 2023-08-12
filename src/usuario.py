@@ -44,6 +44,10 @@ class Usuario:
     def id_user(self):
         return self._id_user
 
+    @id_user.setter
+    def id_user(self, id_user):
+        self._id_user = id_user
+
 
 class UsuarioAdmin(Usuario):
     def __init__(self, id_user=None, name_user=None, pass_user=None, is_admin=True):
