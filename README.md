@@ -19,7 +19,7 @@ Para utilizar el sistema, sigue los siguientes pasos:
 * Selecciona la opción 1 para iniciar sesión o la opción 2 para registrarte.
 * Si eliges registrarte, sigue las indicaciones para ingresar tu nombre de usuario y contraseña.
 * Si eliges iniciar sesión, ingresa tu nombre de usuario y contraseña.
-* Si inicias sesión como administrador, tendrás opciones adicionales, como crear usuarios administradores y cambiar contraseñas. **_(Funcion no implementada)_**
+* Si inicias sesión como administrador, tendrás opciones adicionales, como crear usuarios administradores y cambiar contraseñas.
 
 ## Requisitos y Dependencias
 * Python 3.x
