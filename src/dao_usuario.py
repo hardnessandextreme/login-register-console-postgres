@@ -1,3 +1,4 @@
+import time
 from database import Database
 from usuario import Usuario
 from logs.logging import log
@@ -40,12 +41,14 @@ class DAOUsuario:
                     print(cursor.fetchone())
                     print('El usuario ya existe, escoja otro.')
                     log.error(f'Error: El usuario {usuario.name_user} ya existe, escoja otro.')
+                    time.sleep(0.2)
                     registro_exitoso = False
                 else:
                     valor_registro = (usuario.name_user, usuario.pass_user)
                     cursor.execute(cls._REGISTRAR, valor_registro)
                     print('Usuario registrado correctamente')
                     log.debug(f'Un usuario se registro correctamente: {usuario.name_user}')
+                    time.sleep(0.2)
                     registro_exitoso = True
             return registro_exitoso
 
@@ -67,10 +70,11 @@ class DAOUsuario:
                 if verificacion:
                     usuario.id_user = verificacion[0]
                     inicio_exitoso = True
-                    print('\nInicio de sesion exitoso.\n')
-                    log.debug(f'El usuario {usuario.name_user} con ID: {usuario.id_user} ha iniciado sesion.')
+                    log.debug(f'Inicio de sesion exitoso. El usuario (ID: {usuario.id_user}) {usuario.name_user} ha iniciado sesion.')
+                    time.sleep(0.2)
                 else:
                     inicio_exitoso = False
+                    print('Credenciales invalidas')
             return inicio_exitoso
 
     """
@@ -108,12 +112,17 @@ class DAOUsuario:
                 valor = (usuario.name_user,)
                 cursor1.execute(cls._EXTRAER_ID_USUARIO_A_SUBIR, valor)
                 valor_admin = cursor1.fetchone()
-                usuario.id_user = valor_admin[0]
-
-            with conexion.cursor() as cursor:
-                valores = (usuario.name_user,)
-                cursor.execute(cls._CONVERTIR_ADMIN, valores)
-
+                if valor_admin is None:
+                    usuario_existe = False
+                    return usuario_existe
+                else:
+                    usuario_existe = True
+                    usuario.id_user = valor_admin[0]
+            # with conexion.cursor() as cursor:
+                    valores = (usuario.name_user,)
+                    cursor1.execute(cls._CONVERTIR_ADMIN, valores)
+                    # cursor1.fetchone()
+                    return usuario_existe
     """
     Este metodo es sencillo, sirve para listar los usuarios y solo se llama cuando un administrador accede a esa 
     opcion. El fetchall retornado se recorre con un for para ir guardando las tuplas en una lista. Retorna la lista 
@@ -141,11 +150,12 @@ class DAOUsuario:
                 cursor.execute(cls._CONF_CONTRA_ACTUAL, valores)
                 verificacion = cursor.fetchone()
                 if verificacion[0] != contrasenia_actual:
-                    print('La contrasena actual no coincide')
+                    log.error(f'El usuario (ID: {usuario.id_user}) {usuario.name_user} no logro cambiar de contrasena.\n '
+                              f'Contrasena actual incorrecta')
+                    time.sleep(0.2)
                     cambio = False
                 else:
                     valores = (contrasnia_a_cambiar, usuario.name_user)
                     cursor.execute(cls._CAMBIAR_CONTRASENA, valores)
-                    print('Has actualizado tu contrasenia.')
                     cambio = True
             return cambio
