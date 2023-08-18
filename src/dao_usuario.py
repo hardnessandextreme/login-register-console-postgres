@@ -1,7 +1,7 @@
 import time
-from database import Database
+from src.database.cursor_pool import CursorPool
 from usuario import Usuario
-from logs.logging import log
+from registros.logs import log
 
 """
 La clase DAOUsuario contiene todos los metodos que el usuario va a tener para realizar las operaciones.
@@ -18,7 +18,7 @@ class DAOUsuario:
     _VERIFICAR_ADMIN_USER = 'SELECT is_admin FROM usuarios WHERE name_user = %s'
     _EXTRAER_ID_USUARIO_A_SUBIR = 'SELECT id_user FROM usuarios WHERE name_user = %s'
     _CONVERTIR_ADMIN = "UPDATE usuarios SET is_admin='S' WHERE name_user= %s"
-    _LISTAR_USUARIOS = 'SELECT * FROM usuarios ORDER BY id_user'
+    _LISTAR_USUARIOS = "SELECT * FROM usuarios WHERE is_admin='N'"
     _CAMBIAR_CONTRASENA = 'UPDATE usuarios SET pass_user = %s WHERE name_user = %s'
     _CONF_CONTRA_ACTUAL = 'SELECT pass_user FROM usuarios WHERE name_user=%s'
 
@@ -33,24 +33,23 @@ class DAOUsuario:
 
     @classmethod
     def registrarUsuario(cls, usuario):
-        with Database.conectarDb() as conexion:
-            with conexion.cursor() as cursor:
-                valor_usuario = (usuario.name_user,)
-                cursor.execute(cls._VERIFICAR_USER_REGISTRO, valor_usuario)
-                if cursor.fetchone() is not None:
-                    print(cursor.fetchone())
-                    print('El usuario ya existe, escoja otro.')
-                    log.error(f'Error: El usuario {usuario.name_user} ya existe, escoja otro.')
-                    time.sleep(0.2)
-                    registro_exitoso = False
-                else:
-                    valor_registro = (usuario.name_user, usuario.pass_user)
-                    cursor.execute(cls._REGISTRAR, valor_registro)
-                    print('Usuario registrado correctamente')
-                    log.debug(f'Un usuario se registro correctamente: {usuario.name_user}')
-                    time.sleep(0.2)
-                    registro_exitoso = True
-            return registro_exitoso
+        with CursorPool() as cursor:
+            valor_usuario = (usuario.name_user,)
+            cursor.execute(cls._VERIFICAR_USER_REGISTRO, valor_usuario)
+            if cursor.fetchone() is not None:
+                print(cursor.fetchone())
+                print('El usuario ya existe, escoja otro.')
+                log.error(f'Error: El usuario {usuario.name_user} ya existe, escoja otro.')
+                time.sleep(0.2)
+                registro_exitoso = False
+            else:
+                valor_registro = (usuario.name_user, usuario.pass_user)
+                cursor.execute(cls._REGISTRAR, valor_registro)
+                print('Usuario registrado correctamente')
+                log.debug(f'Un usuario se registro correctamente: {usuario.name_user}')
+                time.sleep(0.2)
+                registro_exitoso = True
+        return registro_exitoso
 
     """
     Este otro metodo de clase logearUsuario() ayudara a al usuario a poder iniciar sesion.
@@ -62,20 +61,18 @@ class DAOUsuario:
 
     @classmethod
     def logearUsuario(cls, usuario):
-        with Database.conectarDb() as conexion:
-            with conexion.cursor() as cursor:
-                valores_usuario = (usuario.name_user, usuario.pass_user)
-                cursor.execute(cls._LOGEAR, valores_usuario)
-                verificacion = cursor.fetchone()
-                if verificacion:
-                    usuario.id_user = verificacion[0]
-                    inicio_exitoso = True
-                    log.debug(f'Inicio de sesion exitoso. El usuario (ID: {usuario.id_user}) {usuario.name_user} ha iniciado sesion.')
-                    time.sleep(0.2)
-                else:
-                    inicio_exitoso = False
-                    print('Credenciales invalidas')
-            return inicio_exitoso
+        with CursorPool() as cursor:
+            valores_usuario = (usuario.name_user, usuario.pass_user)
+            cursor.execute(cls._LOGEAR, valores_usuario)
+            verificacion = cursor.fetchone()
+            if verificacion:
+                usuario.id_user = verificacion[0]
+                inicio_exitoso = True
+                log.debug(f'Inicio de sesion exitoso. El usuario (ID: {usuario.id_user}) {usuario.name_user} ha iniciado sesion.')
+            else:
+                inicio_exitoso = False
+                print('Credenciales invalidas')
+        return inicio_exitoso
 
     """
     El metodo de clase esAdministrador() asiste al sistema para verificar si un usuario que inicia sesion, tiene
@@ -87,16 +84,15 @@ class DAOUsuario:
 
     @classmethod
     def esAdministrador(cls, usuario):
-        with Database.conectarDb() as conexion:
-            with conexion.cursor() as cursor:
-                valores_usuario_admin = (usuario.name_user,)
-                cursor.execute(cls._VERIFICAR_ADMIN_USER, valores_usuario_admin)
-                valor_admin = cursor.fetchone()
-                if valor_admin[0] == 'S':
-                    esAdmin = True
-                else:
-                    esAdmin = False
-            return esAdmin
+        with CursorPool() as cursor:
+            valores_usuario_admin = (usuario.name_user,)
+            cursor.execute(cls._VERIFICAR_ADMIN_USER, valores_usuario_admin)
+            valor_admin = cursor.fetchone()
+            if valor_admin[0] == 'S':
+                esAdmin = True
+            else:
+                esAdmin = False
+        return esAdmin
 
     """
     convetirAdmin() es un metodo que contiene dos cursores y sirve para poder dar rango administrador a un usuario 
@@ -107,22 +103,19 @@ class DAOUsuario:
 
     @classmethod
     def convertirAdmin(cls, usuario):
-        with Database.conectarDb() as conexion:
-            with conexion.cursor() as cursor1:
-                valor = (usuario.name_user,)
-                cursor1.execute(cls._EXTRAER_ID_USUARIO_A_SUBIR, valor)
-                valor_admin = cursor1.fetchone()
-                if valor_admin is None:
-                    usuario_existe = False
-                    return usuario_existe
-                else:
-                    usuario_existe = True
-                    usuario.id_user = valor_admin[0]
-            # with conexion.cursor() as cursor:
-                    valores = (usuario.name_user,)
-                    cursor1.execute(cls._CONVERTIR_ADMIN, valores)
-                    # cursor1.fetchone()
-                    return usuario_existe
+        with CursorPool() as cursor:
+            valor = (usuario.name_user,)
+            cursor.execute(cls._EXTRAER_ID_USUARIO_A_SUBIR, valor)
+            valor_admin = cursor.fetchone()
+            if valor_admin is None:
+                usuario_existe = False
+                return usuario_existe
+            else:
+                usuario_existe = True
+                usuario.id_user = valor_admin[0]
+                valores = (usuario.name_user,)
+                cursor.execute(cls._CONVERTIR_ADMIN, valores)
+                return usuario_existe
     """
     Este metodo es sencillo, sirve para listar los usuarios y solo se llama cuando un administrador accede a esa 
     opcion. El fetchall retornado se recorre con un for para ir guardando las tuplas en una lista. Retorna la lista 
@@ -131,31 +124,29 @@ class DAOUsuario:
 
     @classmethod
     def listarUsuarios(cls):
-        with Database.conectarDb() as conexion:
-            with conexion.cursor() as cursor:
-                cursor.execute(cls._LISTAR_USUARIOS)
-                registros = cursor.fetchall()
-                listaUsuarios = []
-                for usuario in registros:
-                    usuarios = Usuario(id_user=usuario[0], name_user=usuario[1], pass_user=usuario[2],
-                                       is_admin=usuario[3])
-                    listaUsuarios.append(usuarios)
-                return listaUsuarios
+        with CursorPool() as cursor:
+            cursor.execute(cls._LISTAR_USUARIOS)
+            registros = cursor.fetchall()
+            listaUsuarios = []
+            for usuario in registros:
+                usuarios = Usuario(id_user=usuario[0], name_user=usuario[1], pass_user=usuario[2],
+                                   is_admin=usuario[3])
+                listaUsuarios.append(usuarios)
+            log.debug(f'Usuarios listados: {listaUsuarios}')
+            return listaUsuarios
 
     @classmethod
     def cambiarContrasenia(cls, usuario, contrasenia_actual, contrasnia_a_cambiar):
-        with Database.conectarDb() as conexion:
-            with conexion.cursor() as cursor:
-                valores = (usuario.name_user,)
-                cursor.execute(cls._CONF_CONTRA_ACTUAL, valores)
-                verificacion = cursor.fetchone()
-                if verificacion[0] != contrasenia_actual:
-                    log.error(f'El usuario (ID: {usuario.id_user}) {usuario.name_user} no logro cambiar de contrasena.\n '
-                              f'Contrasena actual incorrecta')
-                    time.sleep(0.2)
-                    cambio = False
-                else:
-                    valores = (contrasnia_a_cambiar, usuario.name_user)
-                    cursor.execute(cls._CAMBIAR_CONTRASENA, valores)
-                    cambio = True
-            return cambio
+        with CursorPool() as cursor:
+            valores = (usuario.name_user,)
+            cursor.execute(cls._CONF_CONTRA_ACTUAL, valores)
+            verificacion = cursor.fetchone()
+            if verificacion[0] != contrasenia_actual:
+                log.error(f'El usuario (ID: {usuario.id_user}) {usuario.name_user} no logro cambiar de contrasena.\n '
+                          f'Contrasena actual incorrecta')
+            else:
+                valores = (contrasnia_a_cambiar, usuario.name_user)
+                cursor.execute(cls._CAMBIAR_CONTRASENA, valores)
+                log.debug(
+                    f'El usuario (ID: {usuario.id_user}) {usuario.name_user} ha actualizado su contrasenia de {contrasenia_actual} a '
+                    f'{contrasnia_a_cambiar}')
