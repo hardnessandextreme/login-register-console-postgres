@@ -47,8 +47,3 @@ class Usuario:
     @id_user.setter
     def id_user(self, id_user):
         self._id_user = id_user
-
-
-class UsuarioAdmin(Usuario):
-    def __init__(self, id_user=None, name_user=None, pass_user=None, is_admin=True):
-        super().__init__(id_user, name_user, pass_user, is_admin)
