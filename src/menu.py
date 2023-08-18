@@ -1,6 +1,63 @@
 import time
 from dao_usuario import DAOUsuario, Usuario
-from logs.logging import log
+from registros.logs import log
+
+
+def opcionesPanel(usuario, usuarioAdmin):
+    if not usuarioAdmin:
+        menu = ('1. Cambiar tu contrasena\n'
+                '2. Ver tu nombre\n'
+                '3. Salir')
+    else:
+        menu = ('1. Crear usuario administrador\n'
+                '2. Cambiar tu contrasena\n'
+                '3. Ver tu nombre\n'
+                '4. Salir')
+    while True:
+        time.sleep(0.10)
+        print(menu)
+        opcion = int(input('Elige una opcion: '))
+
+        try:
+            if opcion == 1 and usuarioAdmin:
+                listado = DAOUsuario.listarUsuarios()
+
+                for usersLista in listado:
+                    print(usersLista)
+
+                name_user = input('Ingrese el Nombre del usuario a convertir a admin: ')
+                user = Usuario(name_user=name_user)
+                if DAOUsuario.convertirAdmin(user):
+                    log.debug(
+                        f'(ID: {usuario.id_user}) {usuario.name_user} ha dado rango admin a (ID: {user.id_user})'
+                        f' {user.name_user}')
+                else:
+                    print('El usuario no existe.')
+
+            elif opcion == 2 and usuarioAdmin:
+                validacionClave(usuario)
+
+            elif opcion == 3 and usuarioAdmin:
+                print(f'Estas viendo tu nombre: {usuario.name_user}')
+
+            elif opcion == 4 and usuarioAdmin:
+                print(f' Cerrando sesion {usuario.name_user} '.center(50, '-'))
+                break
+
+            elif opcion == 1:
+                print('Vas a cambiar tu contra')
+
+            elif opcion == 2:
+                print(f'Estas viendo tu nombre: {usuario.name_user}')
+
+            elif opcion == 3:
+                print(f' Cerrando sesion {usuario.name_user} '.center(50, '-'))
+                break
+
+            else:
+                print('Opcion invalida, intenta de nuevo.')
+        except Exception as exe:
+            print(exe)
 
 
 def validacionClave(usuario):
@@ -30,12 +87,7 @@ def validacionClave(usuario):
     elif validacion_pass:
         print('No cumples con las indicaciones')
     else:
-        cambioPass = DAOUsuario.cambiarContrasenia(usuario, contrasenia_actual, conf_contrasnia_a_cambiar)
-        if cambioPass:
-            log.debug(
-                f'(ID: {usuario.id_user}) {usuario.name_user} ha actualizado su contrasenia de {contrasenia_actual} a '
-                f'{contrasnia_a_cambiar}')
-            time.sleep(0.2)
+        DAOUsuario.cambiarContrasenia(usuario, contrasenia_actual, conf_contrasnia_a_cambiar)
 
 
 def iniciarSesion():
@@ -48,7 +100,6 @@ def iniciarSesion():
     if (name_user == '') or (contra == ''):
         print('Rellene todos los campos')
         return
-
     usuario = Usuario(name_user=name_user, pass_user=contra)
     usuarioDAO = DAOUsuario.logearUsuario(usuario)
 
@@ -58,60 +109,8 @@ def iniciarSesion():
         print('-' * 50)
         usuarioAdmin = DAOUsuario.esAdministrador(usuario)
 
-
-        if not usuarioAdmin:
-            menu = ('1. Cambiar tu contrasena\n'
-                    '2. Ver tu nombre\n'
-                    '3. Salir')
-        else:
-            menu = ('1. Crear usuario administrador\n'
-                    '2. Cambiar tu contrasena\n'
-                    '3. Ver tu nombre\n'
-                    '4. Salir')
-        while True:
-            print(menu)
-            opcion = int(input('Elige una opcion: '))
-            try:
-                if opcion == 1 and usuarioAdmin:
-                    print('Vas a crear un usuario admin')
-                    listado = DAOUsuario.listarUsuarios()
-                    for usersLista in listado:
-                        print(usersLista)
-
-                    name_user = input('Ingrese el nombre del usuario a convertir a admin: ')
-                    user = Usuario(name_user=name_user)
-                    if DAOUsuario.convertirAdmin(user):
-                        log.debug(
-                            f'(ID: {usuario.id_user}) {usuario.name_user} ha dado rango admin a (ID: {user.id_user})'
-                            f' {user.name_user}')
-                        time.sleep(0.2)
-                    else:
-                        print('El usuario no existe.')
-
-                elif opcion == 2 and usuarioAdmin:
-                    validacionClave(usuario)
-
-                elif opcion == 3 and usuarioAdmin:
-                    print(f'Estas viendo tu nombre: {usuario.name_user}')
-
-                elif opcion == 4 and usuarioAdmin:
-                    print(f' Cerrando sesion {usuario.name_user} '.center(50, '-'))
-                    break
-
-                elif opcion == 1:
-                    print('Vas a cambiar tu contra')
-
-                elif opcion == 2:
-                    print(f'Estas viendo tu nombre: {usuario.name_user}')
-
-                elif opcion == 3:
-                    print(f' Cerrando sesion {usuario.name_user} '.center(50, '-'))
-                    break
-
-                else:
-                    print('Opcion invalida, intenta de nuevo.')
-            except Exception as exe:
-                print(exe)
+        # Funcion que lleva el uso del panel
+        opcionesPanel(usuario, usuarioAdmin)
 
 
 def registrarUsuario():
@@ -175,5 +174,8 @@ while loop:
         else:
             print('Ingrese una opcion correcta.')
 
+
     except Exception as e:
         print(e)
+
+
